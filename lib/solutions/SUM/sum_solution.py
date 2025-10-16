@@ -19,4 +19,3 @@ class SumSolution:
             return x + y
         return 0
 
-
