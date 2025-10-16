@@ -8,7 +8,7 @@ class SumSolution:
     def _isValidInput(self, x:int) -> bool:
         if not isinstance(x, int):
             raise TypeError("value must be a positive integer")
-        if  0 <= x <=100:
+        if  x <=100:
             raise ValueError("value must be between 0 and 100 inclusive")
         return True
 
