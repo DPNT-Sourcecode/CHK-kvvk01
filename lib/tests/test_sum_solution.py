@@ -27,4 +27,16 @@ def test_sum_raises_value_error_for_out_of_range(calculator, x,y):
         calculator.sum(x,y)
 
 
+@pytest.mark.parametrize("x,y", [
+    (8, None),
+    (9, "9"),
+    (10, [20]),
+])
+
+def test_sum_raises_type_error_for_non_ints(calculator, x,y):
+    with pytest.raises(TypeError):
+        calculator.sum(x,y)
+
+
+
 
