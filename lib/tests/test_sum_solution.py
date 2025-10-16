@@ -38,5 +38,3 @@ def test_sum_raises_type_error_for_non_ints(calculator, x,y):
         calculator.sum(x,y)
 
 
-
-

@@ -2,7 +2,7 @@
 class SumSolution:
     
     def compute(self, x, y):
-        raise NotImplementedError()
+        return self.sum(x,y)
 
     @staticmethod
     def _is_valid_input(x:int) -> bool:
@@ -14,9 +14,8 @@ class SumSolution:
 
 
     def sum(self, x: int, y: int) -> int:
-        """Calculate sum between input numbers in range 1-100"""
+        """Calculate sum between input numbers in range 0-100"""
         if self._is_valid_input(x) and self._is_valid_input(y):
             return x + y
         return 0
-
 
