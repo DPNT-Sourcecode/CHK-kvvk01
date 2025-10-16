@@ -7,11 +7,24 @@ def calculator():
     return SumSolution()
 
 
-@pytest.mark.parametrize("x,y, expected", [
+@pytest.mark.parametrize("x,y,expected", [
     (0, 1, 1),
     (2, 6, 8),
     (1, 100, 101),
 ])
-    
+
 def test_sum_with_valid_inputs(calculator, x, y, expected):
     assert calculator.sum(x, y) == expected
+
+
+@pytest.mark.parametrize("x,y", [
+    (-1, 1),
+    (2, 101),
+])
+
+def test_sum_raises_value_error_for_out_of_range(calculator, x,y):
+    with pytest.raises(ValueError):
+        calculator.sum(x,y)
+
+
+
