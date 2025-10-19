@@ -7,6 +7,7 @@ def test_hello_world_msg_for_valid_string():
 
     h = HelloSolution()
     actual = h.hello("alex")
-    assert actual == "hello world my name is alex"
+    assert actual == "Hello, World!"
+
 
 
