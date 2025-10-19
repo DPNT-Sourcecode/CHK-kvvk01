@@ -10,6 +10,3 @@ def test_hello_world_msg_for_valid_string():
     assert actual == "Hello, Mr. X!"
 
 
-
-
-
