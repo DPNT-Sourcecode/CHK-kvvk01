@@ -1,4 +1,4 @@
-
+from dataclasses import dataclass
 
 
 # parse the string into an appropiate data structure
@@ -7,6 +7,14 @@
 
 # what does an example string look likE??
 
+@dataclass
+class InventoryItem:
+    name : str
+    price : int
+    quantity : int
+    offer : bool
+
+    def apply_offer(self) -:
 
 class CheckoutSolution:
 
@@ -14,6 +22,7 @@ class CheckoutSolution:
     def checkout(self, skus):
         #
         raise NotImplementedError()
+
 
 
 
