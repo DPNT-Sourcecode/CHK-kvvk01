@@ -14,7 +14,8 @@ class InventoryItem:
     quantity : int
     offer : bool
 
-    def apply_offer(self) -:
+    def calculate_value(self):
+
 
 class CheckoutSolution:
 
@@ -22,6 +23,7 @@ class CheckoutSolution:
     def checkout(self, skus):
         #
         raise NotImplementedError()
+
 
 
 
