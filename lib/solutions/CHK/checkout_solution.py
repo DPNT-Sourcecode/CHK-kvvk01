@@ -40,11 +40,13 @@ class CheckoutSolution:
          if skus == "":
              return 0
 
-        for stk in skus:
+
+        for index, stk in skus:
             self.INVENTORY[stk].quantity +=1
 
 
 
         total = 0
         return total
+
 
