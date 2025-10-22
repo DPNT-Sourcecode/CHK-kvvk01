@@ -44,5 +44,3 @@ def test_single_items(solver):
 #     second = solver.checkout(inp)
 #     assert first == second
 
-
-
