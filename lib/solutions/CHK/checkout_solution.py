@@ -14,7 +14,6 @@ class Item:
     offer: tuple | None
     total: int
 
-    #apply business rule as a method
     def get_discount(self) -> int:
         reduction = (self.quantity * self.price)  - self.offer[1]
         return reduction
@@ -24,6 +23,7 @@ class Item:
         return replace(self, total=new_total)
 
     def offer_met(self, index: int) -> bool:
+        return index % self.offer[0]
 
 class CheckoutSolution:
 
@@ -61,3 +61,4 @@ class CheckoutSolution:
 
         total = 0
         return total
+
