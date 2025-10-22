@@ -20,26 +20,31 @@ class CheckoutSolution:
                  "C": Item(20, 0, None),
                  "D": Item(15, 0, None)}
 
-    def _validateStockInput(self, skus) -> bool :
 
+
+    def _validateStockInput(self, skus) -> bool:
+        if not isinstance(skus, str):
+            return False
+
+        for ch in skus:
+            if ch not in self.INVENTORY.keys():
+                return False
+        return True
 
     # skus = unicode string
     def checkout(self, skus) -> int :
 
-
-
-
-         if not isinstance(skus, str):
-             return -1
-
-         for ch in skus:
-             if ch not in INVENT keys():
-                 return -1
+        if not self._validateStockInput(skus):
+            return -1
 
          if skus == "":
              return 0
+
+        for stk in skus:
+            self.INVENTORY[stk].quantity +=1
 
 
 
         total = 0
         return total
+
