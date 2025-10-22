@@ -44,4 +44,3 @@ def test_offers_A(solver):
 #     second = solver.checkout(inp)
 #     assert first == second
 
-
