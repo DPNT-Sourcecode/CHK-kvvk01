@@ -18,7 +18,7 @@ class Item:
         reduction = (self.quantity * self.price)  - self.offer[1]
         return reduction
 
-    def apply_discount(self) :
+    def apply_discount(self) -> Item:
         new_total = self.total - self.get_discount()
         return replace(self, total=new_total)
 
@@ -53,12 +53,15 @@ class CheckoutSolution:
              return 0
 
         for index, stk in skus:
-            self.INVENTORY[stk].quantity +=1
+            item = self.INVENTORY[stk]
+            item.quantity +=1 # could be immutable
             #if offer is avaialble for item then check for offer before calcualton
             # otherewise apply buisiness rules
-
+            if item.offer_met(index):
+                updatedItem = item.apply_discount()
 
 
         total = 0
         return total
+
 
