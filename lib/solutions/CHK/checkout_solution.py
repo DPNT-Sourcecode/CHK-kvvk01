@@ -63,7 +63,6 @@ class CheckoutSolution:
                 self.INVENTORY[stk] = updated_item
             else:
                 updated_item = item.calculate_stock_value()
-                print(updated_item)
                 self.INVENTORY[stk] = updated_item
 
         total = sum(item.total for item in self.INVENTORY.values())
@@ -77,3 +76,4 @@ def main():
 
 
 main()
+
