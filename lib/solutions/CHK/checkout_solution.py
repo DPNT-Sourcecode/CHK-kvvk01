@@ -43,7 +43,3 @@ class CheckoutSolution:
 
         total = 0
         return total
-
-
-
-
