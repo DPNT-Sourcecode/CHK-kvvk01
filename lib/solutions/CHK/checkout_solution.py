@@ -7,19 +7,31 @@ from dataclasses import dataclass
 
 # what does an example string look likE??
 
-@dataclass
-class InventoryItem:
-    name : str
-    price : int
-    quantity : int
-    offer : tuple
 
-    def calculate_value(self):
 
 
 class CheckoutSolution:
+    @dataclass
+    class Item:
+        price: int
+        quantity: int
+        offer: tuple | None
+
+    inventory = {"A":  Item(50, 0, (3, 130)), "B": Item(30, 0, (2, 45), "C": Item(20, 0, None), "D", Item(15, 0, None)}
 
     # skus = unicode string
-    def checkout(self, skus):
-        #
-        raise NotImplementedError()
+    def checkout(self, skus) -> int :
+
+
+         if not isinstance(skus, str):
+             return -1
+
+         if skus == "":
+             return 0
+
+         for ch in skus
+
+
+        total = 0
+        return total
+
