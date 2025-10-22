@@ -14,7 +14,7 @@ class Item:
     offer: tuple | None
 
     #apply business rule as a method
-    
+    def apply_offer(self):
 
 class CheckoutSolution:
 
@@ -52,6 +52,7 @@ class CheckoutSolution:
 
         total = 0
         return total
+
 
 
 
