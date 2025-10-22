@@ -19,14 +19,11 @@ def test_non_string_input_returns_minus_one(solver, input_val):
     assert solver.checkout(input_val) == -1
 #
 def test_invalid_sku_returns_minus_one(solver):
-    assert solver.checkout("AX") == -1
+    assert solver.checkout("A≈") == -1
     assert solver.checkout("a") == -1
-#
-# def test_single_items(solver):
-#     assert solver.checkout("A") == 50
-#     assert solver.checkout("B") == 30
-#     assert solver.checkout("C") == 20
-#     assert solver.checkout("D") == 15
+
+def test_single_items(solver):
+    assert solver.checkout("A") == 50
 
 # def test_offers_A(solver):
 #     assert solver.checkout("AAA") == 130
@@ -46,5 +43,6 @@ def test_invalid_sku_returns_minus_one(solver):
 #     first = solver.checkout(inp)
 #     second = solver.checkout(inp)
 #     assert first == second
+
 
 

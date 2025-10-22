@@ -52,7 +52,7 @@ class CheckoutSolution:
         if skus == "":
             return 0
 
-        for index, stk in skus:
+        for index, stk in enumerate(skus):
             item = self.INVENTORY[stk]
             item.quantity +=1
             if item.offer_met(index):
@@ -61,6 +61,7 @@ class CheckoutSolution:
 
         total = sum(item.total for item in self.INVENTORY.values())
         return total
+
 
 
 
