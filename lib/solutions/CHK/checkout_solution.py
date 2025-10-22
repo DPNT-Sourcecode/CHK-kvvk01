@@ -22,8 +22,11 @@ class Item:
         new_total = self.total - self.calculate_discount()
         return replace(self, total=new_total)
 
+    def calculate_stock_value(self):
+        return replace(self, total= self.total + self.price)
+
     def offer_met(self, index: int) -> bool:
-        return index % self.offer[0]
+        return index % self.offer[0] == 0
 
 class CheckoutSolution:
 
@@ -58,9 +61,13 @@ class CheckoutSolution:
             if item.offer_met(index):
                 updated_item = item.apply_discount()
                 self.INVENTORY[stk] = updated_item
+            else:
+                updated_item = item.calculate_stock_value()
+                self.INVENTORY[stk] = updated_item
 
         total = sum(item.total for item in self.INVENTORY.values())
         return total
+
 
 
 
