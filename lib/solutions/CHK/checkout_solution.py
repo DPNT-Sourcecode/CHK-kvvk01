@@ -55,10 +55,10 @@ class CheckoutSolution:
         if skus == "":
             return 0
 
-        for index, stk in enumerate(skus):
+        for stk in skus:
             item = self.INVENTORY[stk]
             item.quantity +=1
-            if item.offer_met(index):
+            if item.offer_met(item.quantity):
                 updated_item = item.apply_discount()
                 self.INVENTORY[stk] = updated_item
             else:
