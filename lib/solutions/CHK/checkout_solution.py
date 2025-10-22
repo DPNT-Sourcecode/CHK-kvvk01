@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 
 # parse the string into an appropiate data structure
@@ -14,7 +14,12 @@ class Item:
     offer: tuple | None
 
     #apply business rule as a method
-    def apply_offer(self):
+    def get_discount(self) -> int:
+        reduction = (self.quantity * self.price)  - self.offer[1]
+        return reduction
+
+    def apply_discount(self) -> "Item":
+        return replace(Item, )
 
 class CheckoutSolution:
 
@@ -52,6 +57,7 @@ class CheckoutSolution:
 
         total = 0
         return total
+
 
 
 
