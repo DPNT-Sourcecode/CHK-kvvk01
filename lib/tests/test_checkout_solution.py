@@ -25,10 +25,10 @@ def test_invalid_sku_returns_minus_one(solver):
 def test_single_items(solver):
     assert solver.checkout("A") == 50
 
-# def test_offers_A(solver):
-#     assert solver.checkout("AAA") == 130
-#     assert solver.checkout("AAAA") == 180
-#     assert solver.checkout("AAAAAA") == 260
+def test_offers_A(solver):
+    assert solver.checkout("AAA") == 130
+    # assert solver.checkout("AAAA") == 180
+    # assert solver.checkout("AAAAAA") == 260
 #
 # def test_offers_B(solver):
 #     assert solver.checkout("BB") == 45
@@ -43,4 +43,5 @@ def test_single_items(solver):
 #     first = solver.checkout(inp)
 #     second = solver.checkout(inp)
 #     assert first == second
+
 

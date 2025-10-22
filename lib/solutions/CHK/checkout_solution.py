@@ -71,9 +71,10 @@ class CheckoutSolution:
 
 def main():
    c = CheckoutSolution()
-   t = c.checkout("A")
+   t = c.checkout("AAA")
    print(t)
 
 
 main()
+
 
