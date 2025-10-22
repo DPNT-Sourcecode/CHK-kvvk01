@@ -14,13 +14,13 @@ def solver():
 def test_empty_basket_returns_zero(solver):
     assert solver.checkout("") == 0
 
-# @pytest.mark.parametrize("input_val", [None, 123, [], {}])
-# def test_non_string_input_returns_minus_one(solver, input_val):
-#     assert solver.checkout(input_val) == -1
+@pytest.mark.parametrize("input_val", [None, 123, [], {}])
+def test_non_string_input_returns_minus_one(solver, input_val):
+    assert solver.checkout(input_val) == -1
 #
-# def test_invalid_sku_returns_minus_one(solver):
-#     assert solver.checkout("AX") == -1
-#     assert solver.checkout("a") == -1
+def test_invalid_sku_returns_minus_one(solver):
+    assert solver.checkout("AX") == -1
+    assert solver.checkout("a") == -1
 #
 # def test_single_items(solver):
 #     assert solver.checkout("A") == 50
@@ -46,4 +46,5 @@ def test_empty_basket_returns_zero(solver):
 #     first = solver.checkout(inp)
 #     second = solver.checkout(inp)
 #     assert first == second
+
 

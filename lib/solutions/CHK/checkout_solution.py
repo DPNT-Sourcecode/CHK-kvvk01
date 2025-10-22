@@ -47,10 +47,10 @@ class CheckoutSolution:
     def checkout(self, skus) -> int :
 
         if not self._validate_stock_input(skus):
-             return -1
+            return -1
 
-         if skus == "":
-             return 0
+        if skus == "":
+            return 0
 
         for index, stk in skus:
             item = self.INVENTORY[stk]
@@ -61,6 +61,7 @@ class CheckoutSolution:
 
         total = sum(item.total for item in self.INVENTORY.values())
         return total
+
 
 
 
