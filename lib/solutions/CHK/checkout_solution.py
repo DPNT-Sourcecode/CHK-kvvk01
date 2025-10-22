@@ -14,12 +14,12 @@ class Item:
     offer: tuple | None
     total: int
 
-    def caclulate_discount(self) -> int:
+    def calculate_discount(self) -> int:
         reduction = (self.quantity * self.price)  - self.offer[1]
         return reduction
 
     def apply_discount(self):
-        new_total = self.total - self.caclulate_discount()
+        new_total = self.total - self.calculate_discount()
         return replace(self, total=new_total)
 
     def offer_met(self, index: int) -> bool:
@@ -47,7 +47,7 @@ class CheckoutSolution:
     def checkout(self, skus) -> int :
 
         if not self._validate_stock_input(skus):
-            return -1
+             return -1
 
          if skus == "":
              return 0
@@ -59,8 +59,9 @@ class CheckoutSolution:
                 updated_item = item.apply_discount()
                 self.INVENTORY[stk] = updated_item
 
-        total = 0
+        total = sum(item.total for item in self.INVENTORY.values())
         return total
+
 
 
 
