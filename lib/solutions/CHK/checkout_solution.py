@@ -12,7 +12,7 @@ class InventoryItem:
     name : str
     price : int
     quantity : int
-    offer : bool
+    offer : tuple
 
     def calculate_value(self):
 
@@ -23,6 +23,7 @@ class CheckoutSolution:
     def checkout(self, skus):
         #
         raise NotImplementedError()
+
 
 
 
