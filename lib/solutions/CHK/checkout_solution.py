@@ -23,9 +23,3 @@ class CheckoutSolution:
     def checkout(self, skus):
         #
         raise NotImplementedError()
-
-
-
-
-
-
