@@ -1,67 +1,44 @@
-from dataclasses import dataclass, replace
-
-
-# parse the string into an appropiate data structure
-# process each item i
-# apply business rules to item
-
-# what does an example string look likE??
+from dataclasses import dataclass
+from typing import Optional, Tuple, Dict
+from collections import Counter
 
 @dataclass
 class Item:
     price: int
-    quantity: int
-    offer: tuple | None
-    total: int
+    offer: Optional[Tuple[int, int]] = None
 
-    def calculate_discount(self) -> int:
-        reduction = (self.quantity * self.price)  - self.offer[1]
-        return reduction
-
-    def apply_discount(self):
-        new_total = self.total - self.calculate_discount()
-        return replace(self, total=new_total)
-
-    def apply_stock_value(self):
-        return replace(self, total= self.total + self.price)
-
-    def offer_met(self, index: int) -> bool:
-        return index % self.offer[0] == 0
-
-    def update_quantity(self, count=1):
-
-        return replace(self, quantity=self.quantity+count)
+    def total_for(self, quantity: int) -> int:
+        if not self.offer or quantity == 0:
+            return self.price * quantity
+        bundle_qty, bundle_price = self.offer
+        bundles = quantity // bundle_qty
+        remainder = quantity % bundle_qty
+        return bundles * bundle_price + remainder * self.price
 
 class CheckoutSolution:
+    INVENTORY: Dict[str, Item] = {
+        "A": Item(price=50, offer=(3, 130)),
+        "B": Item(price=30, offer=(2, 45)),
+        "C": Item(price=20, offer=None),
+        "D": Item(price=15, offer=None),
+    }
 
-    INVENTORY = {"A": Item(50, 0, (3, 130), 0),
-                 "B": Item(30, 0, (2, 45), 0),
-                 "C": Item(20, 0, None, 0),
-                 "D": Item(15, 0, None, 0)}
-
-
-
-    def _validate_stock_input(self, skus) -> bool:
+    def checkout(self, skus: str) -> int:
         if not isinstance(skus, str):
-            return False
-
-        for ch in skus:
-            if ch not in self.INVENTORY.keys():
-                return False
-        return True
-
-    # skus = unicode string
-    def checkout(self, skus) -> int :
-
-        if not self._validate_stock_input(skus):
             return -1
 
         if skus == "":
             return 0
 
-        for index, stk in enumerate(skus):
-            
+        for ch in skus:
+            if ch not in self.INVENTORY:
+                return -1
 
-        total = sum(item.total for item in self.INVENTORY.values())
+        counts = Counter(skus)
+        total = 0
+        for sku, qty in counts.items():
+            template = self.INVENTORY[sku]
+            total += template.total_for(qty)
         return total
+
 
