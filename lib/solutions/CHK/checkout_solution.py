@@ -13,6 +13,9 @@ class Item:
     quantity: int
     offer: tuple | None
 
+    #apply business rule as a method
+    
+
 class CheckoutSolution:
 
     INVENTORY = {"A": Item(50, 0, (3, 130)),
@@ -40,13 +43,15 @@ class CheckoutSolution:
          if skus == "":
              return 0
 
-
         for index, stk in skus:
             self.INVENTORY[stk].quantity +=1
+            #if offer is avaialble for item then check for offer before calcualton
+            # otherewise apply buisiness rules
 
 
 
         total = 0
         return total
+
 
 
