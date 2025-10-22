@@ -58,7 +58,8 @@ class CheckoutSolution:
         for stk in skus:
             item = self.INVENTORY[stk]
             item.quantity +=1
-            self.INVENTORY[stk] = item.calculate_stock_value()
+            updated_item = item.calculate_stock_value()
+            self.INVENTORY[stk] = updated_item
             if item.offer_met(item.quantity):
                 updated_item = item.apply_discount()
                 self.INVENTORY[stk] = updated_item
@@ -74,6 +75,7 @@ def main():
 
 
 main()
+
 
 
 
