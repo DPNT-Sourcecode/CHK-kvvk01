@@ -14,12 +14,12 @@ class Item:
     offer: tuple | None
     total: int
 
-    def get_discount(self) -> int:
+    def caclulate_discount(self) -> int:
         reduction = (self.quantity * self.price)  - self.offer[1]
         return reduction
 
-    def apply_discount(self) -> Item:
-        new_total = self.total - self.get_discount()
+    def apply_discount(self):
+        new_total = self.total - self.caclulate_discount()
         return replace(self, total=new_total)
 
     def offer_met(self, index: int) -> bool:
@@ -54,14 +54,13 @@ class CheckoutSolution:
 
         for index, stk in skus:
             item = self.INVENTORY[stk]
-            item.quantity +=1 # could be immutable
-            #if offer is avaialble for item then check for offer before calcualton
-            # otherewise apply buisiness rules
+            item.quantity +=1
             if item.offer_met(index):
-                updatedItem = item.apply_discount()
-
+                updated_item = item.apply_discount()
+                self.INVENTORY[stk] = updated_item
 
         total = 0
         return total
+
 
 
